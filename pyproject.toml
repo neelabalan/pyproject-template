@@ -1,0 +1,54 @@
+# https://www.reddit.com/r/Python/comments/c5jn39/til_you_can_specify_your_mypy_pytest/
+# "hack"
+# poetry run mypy --config-file pyproject.toml module_name
+[mypy]
+python_version = 3.8
+
+[mypy-my_module]
+ignore_missing_imports = true
+
+[tool.poetry]
+name = "project"
+version = "0.1.0"
+description = ""
+authors = ["Neelabalan N <neelabalan.n@gmail.com>"]
+
+# [tool.pytest.ini_options]
+# addopts = "-ra -q"
+# testpaths = [ "tests" ]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = "^0.0.8"
+
+[tool.poetry.dev-dependencies]
+#pytest = "^6.0.0"
+# tox = "^3.21"
+unify = "0.5"
+flake8 = "^3.8.2"
+yapf = "^0.30"
+isort = "^5.7"
+coverage = { extras = ["toml"], version = "^5.1" }
+mypy = "^0.780"
+pre-commit = "*"
+
+[tool.isort]
+multi_line_output = 3
+line_length = 80
+include_trailing_comma = true
+skip_gitignore = true
+
+[tool.coverage.run]
+omit = [".*", "*/site-packages/*"]
+
+[tool.coverage.report]
+# can be improved :)
+fail_under = 50
+
+[tool.poetry.scripts]
+prj = "project.main:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
