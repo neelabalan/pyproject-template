@@ -9,6 +9,3 @@ Run `poetry run pre-commit run --all-files` if there are file that were committe
 
 Activate the shell with: `poetry shell`
 
-Lint with: `poetry run pylint resc/ tests/`
-
-Test with: `poetry run pytest --cov=resc`
